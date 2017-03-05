@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>GottaBeerFresh</title>
+    <style>
+    .navbar-fixed-top {
+        background-color: black;
+        color: white
+    }
+    </style>
+  </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+    <script src="factfunc.js"></script>
+  <body ng-controller="myCtrl">
+    <div class="navbar-fixed-top"><h2> beer_fresh </h2></div>
+<br />
+<br />
+<br />
+<br />
+
+<div ng-repeat="beer in beers | limitTo:quantity" class="col-sm-6 col-md-4 col-lg-4">
+    <div class="thumbnail">
+      <img height="300px" width="300px" src="{{beer.labels.large}}" alt="{{beer.labels.small}}">
+      <div class="caption">
+        <h3>{{beer.name}}</h3>
+        <p>{{beer.description}}</p>
+        <p><a href="#" class="btn btn-primary" role="button">Add to bucket list</a> </div>
+    </div>
+  </div>
+  <div class="row"> </div>
+  <div class="col-md-2 col-md-offset-5">  <a ng-click="loadMore()">Load More</a></div>
+  </body>
+</html>
